@@ -55,5 +55,4 @@ function Contact() {
     </Container>
   );
 }
-
 export default Contact;

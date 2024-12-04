@@ -1,7 +1,21 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, ProgressBar } from 'react-bootstrap';
 
 function Project() {
+  
+  const skills = [
+    { name: 'Server Administration', level: 90 },
+    { name: 'Network Administration', level: 90 },
+    { name: 'C++ Programming', level: 70 },
+    { name: 'JavaScript Programming', level: 25 },
+    { name: 'Cyber Security', level: 50 },
+    { name: 'Game Development', level: 50 },
+    { name: 'React JS Programming', level: 25 },
+    { name: 'Web Design', level: 60 },
+    { name: 'UI / UX', level: 50 },
+    { name: 'Python Development', level: 40 },
+    { name: 'Database Management', level: 80 }
+  ];
   return (
     <Container className="project mt-5">
       <h1 className="text-center mb-4">Project Saya</h1>
@@ -59,9 +73,35 @@ function Project() {
             </Card.Body>
           </Card>
         </Col>
+        <Col md={12}>
+        
+        <Card>
+            <Card.Body>
+              <Card.Title>Skillset</Card.Title>
+              {skills.map((skill, index) => (
+                <div key={index} className="mb-3">
+                  <strong>{skill.name}</strong>
+                  <ProgressBar
+                    now={skill.level}
+                    label={`${skill.level}%`}
+                    variant={getVariant(skill.level)}
+                    className="mt-2"
+                  />
+                </div>
+              ))}
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );
 }
 
+// Fungsi untuk menentukan warna progress bar
+function getVariant(level) {
+  if (level >= 80) return 'success';
+  if (level >= 60) return 'info';
+  if (level >= 40) return 'warning';
+  return 'danger';
+}
 export default Project;
