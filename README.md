@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Tugas 1 Digiup - Web Programming React.js - Naufal Rakha Putra
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
